@@ -28,20 +28,20 @@ echo """
 apt-get install nbtscan -y
 apt-get install python-scapy -y
 apt-get install tcpdump -y
-apt-get install nmap -y 
-apt-get install python-nmap -y 
+apt-get install nmap -y
+apt-get install python-nmap -y
 apt-get install python-bluez -y
 apt-get install smbclient -y
 apt-get install samba -y
-apt-get install samba_common_bin -y
+apt-get install samba-common-bin -y
 apt-get install unzip -y
 sudo apt-get install python-dev
 sudo apt-get install python3-dev
 
 
-pip install optparse-pretty 
-pip install netaddr 
-pip install ipaddress 
+pip install optparse-pretty
+pip install netaddr
+pip install ipaddress
 pip install subprocess32
 pip install pypcap
 apt-get install libpcap-dev -y
@@ -91,5 +91,3 @@ unzip SysinternalsSuite.zip -d sysinternals/
 echo """
         All done ready to rock...
     """
-
-
