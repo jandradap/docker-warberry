@@ -17,7 +17,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN mkdir -p /root/warberry/warberry/Tools/Responder \
+RUN mkdir -p /root/warberry/Tools/Responder \
 	&& mkdir -p /root/warberry/Results \
 	&& mkdir -p /root/warberry/warberry \
 	&& sed -i 's/main/main contrib non-free/g' /etc/apt/sources.list \
@@ -60,13 +60,13 @@ RUN mkdir -p /root/warberry/warberry/Tools/Responder \
 	&& rm -rf /var/lib/apt/lists/*
 
 
-RUN	git clone https://github.com/DanMcInerney/net-creds.git /root/warberry/warberry/Tools/net-creds \
-	&& git clone https://github.com/sqlmapproject/sqlmap.git /root/warberry/warberry/Tools/sqlmap \
-	&& git clone https://github.com/CoreSecurity/impacket.git /root/warberry/warberry/Tools/impacket \
-	&& git clone https://github.com/samratashok/nishang.git /root/warberry/warberry/Tools/nishang \
-	&& git clone https://github.com/SpiderLabs/Responder.git /root/warberry/warberry/Tools/Responder \
-	&& git clone https://github.com/PowerShellMafia/PowerSploit.git /root/warberry/warberry/Tools/PowerSploit \
-	&& git clone https://github.com/offensive-security/exploit-database.git /root/warberry/warberry/Tools/exploit-database \
+RUN	git clone https://github.com/DanMcInerney/net-creds.git /root/warberry/Tools/net-creds \
+	&& git clone https://github.com/sqlmapproject/sqlmap.git /root/warberry/Tools/sqlmap \
+	&& git clone https://github.com/CoreSecurity/impacket.git /root/warberry/Tools/impacket \
+	&& git clone https://github.com/samratashok/nishang.git /root/warberry/Tools/nishang \
+	&& git clone https://github.com/SpiderLabs/Responder.git /root/warberry/Tools/Responder \
+	&& git clone https://github.com/PowerShellMafia/PowerSploit.git /root/warberry/Tools/PowerSploit \
+	&& git clone https://github.com/offensive-security/exploit-database.git /root/warberry/Tools/exploit-database \
 	&& git clone https://github.com/secgroundzero/warberry.git /usr/src/warberry \
 	&& cp -r /usr/src/warberry/* /root/warberry/warberry \
 	&& rgrep -l "sudo" /root/warberry/warberry | xargs sed -i 's/sudo//g'
@@ -74,11 +74,11 @@ RUN	git clone https://github.com/DanMcInerney/net-creds.git /root/warberry/warbe
 RUN update-ca-certificates \
 	&& wget --no-check-certificate http://seclists.org/nmap-dev/2016/q2/att-201/clamav-exec.nse -O /usr/share/nmap/scripts/clamav-exec.nse \
 	&& wget --no-check-certificate https://labs.portcullis.co.uk/download/enum4linux-0.8.9.tar.gz -P /tmp/ \
-	&& tar -zxvf /tmp/enum4linux-0.8.9.tar.gz -C /root/warberry/warberry/Tools/  \
-	&& mv /root/warberry/warberry/Tools/enum4linux-0.8.9 /root/warberry/warberry/Tools/enum4linux \
-	&& wget https://download.sysinternals.com/files/SysinternalsSuite.zip -P /root/warberry/warberry/Tools/ \
-  && unzip /root/warberry/warberry/Tools/SysinternalsSuite.zip -d /root/warberry/warberry/Tools/sysinternals/ \
-	&& rm /root/warberry/warberry/Tools/SysinternalsSuite.zip \
+	&& tar -zxvf /tmp/enum4linux-0.8.9.tar.gz -C /root/warberry/Tools/  \
+	&& mv /root/warberry/Tools/enum4linux-0.8.9 /root/warberry/Tools/enum4linux \
+	&& wget https://download.sysinternals.com/files/SysinternalsSuite.zip -P /root/warberry/Tools/ \
+  && unzip /root/warberry/Tools/SysinternalsSuite.zip -d /root/warberry/Tools/sysinternals/ \
+	&& rm /root/warberry/Tools/SysinternalsSuite.zip \
 	&& rm -rf /tmp/*
 
 WORKDIR /root/warberry
