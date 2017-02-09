@@ -69,7 +69,7 @@ RUN	git clone https://github.com/DanMcInerney/net-creds.git /root/warberry/warbe
 	&& git clone https://github.com/offensive-security/exploit-database.git /root/warberry/warberry/Tools/exploit-database \
 	&& git clone https://github.com/secgroundzero/warberry.git /usr/src/warberry \
 	&& cp -r /usr/src/warberry/* /root/warberry/warberry \
-	&& rgrep -l "sudo" /root/warberry/warberry xargs sed -i 's/sudo//g'
+	&& rgrep -l "sudo" /root/warberry/warberry | xargs sed -i 's/sudo//g'
 
 RUN update-ca-certificates \
 	&& wget --no-check-certificate http://seclists.org/nmap-dev/2016/q2/att-201/clamav-exec.nse -O /usr/share/nmap/scripts/clamav-exec.nse \
